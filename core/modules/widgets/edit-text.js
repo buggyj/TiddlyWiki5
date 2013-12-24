@@ -56,10 +56,17 @@ EditTextWidget.prototype.render = function(parent,nextSibling) {
 		domNode.setAttribute("value",editInfo.value)
 	}
 	// Add an input event handler
-	$tw.utils.addEventListeners(domNode,[
+	if (this.onkeyupdate==="yes") { 
+		$tw.utils.addEventListeners(domNode,[
 		{name: "focus", handlerObject: this, handlerMethod: "handleFocusEvent"},
 		{name: "input", handlerObject: this, handlerMethod: "handleInputEvent"}
-	]);
+		]);
+	}else {
+		$tw.utils.addEventListeners(domNode,[
+		{name: "focus", handlerObject: this, handlerMethod: "handleFocusEvent"},
+		{name: "blur",  handlerObject: this, handlerMethod: "handleblurEvent"}
+		]);
+	}
 	// Insert the element into the DOM
 	parent.insertBefore(domNode,nextSibling);
 	this.domNodes.push(domNode);
@@ -134,6 +141,7 @@ EditTextWidget.prototype.execute = function() {
 	this.editClass = this.getAttribute("class");
 	this.editPlaceholder = this.getAttribute("placeholder");
 	this.editFocusPopup = this.getAttribute("focusPopup");
+	this.onkeyupdate = this.getAttribute("onkeyupdate");
 	// Get the editor element tag and type
 	var tag,type;
 	if(this.editField === "text") {

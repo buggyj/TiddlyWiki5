@@ -8,11 +8,11 @@ tags: $:/tags/EditTemplate
 <$transclude />
 </div>
 <div class="tw-tiddler-preview-edit">
-<$edit field="text" class="tw-edit-texteditor"/>
+<$edit-text field="text" onkeyupdate="yes" class="tw-edit-texteditor"/>
 </div>
 </div>
 </$reveal>
 <$reveal state="$:/ShowEditPreview" type="nomatch" text="yes">
 //<$transclude tiddler="$:/core/ui/EditorHint"/>// <$button type="set" set="$:/ShowEditPreview" setTo="yes">show preview</$button>
-<$edit field="text" class="tw-edit-texteditor"/>
+<$edit-text field="text" onkeyupdate="no" class="tw-edit-texteditor" />
 </$reveal>
