@@ -1,8 +1,8 @@
 {
 	"plugins": [
 		"tiddlywiki/fullscreen",
-		"tiddlywiki/googleanalytics",
-		"tiddlywiki/github-fork-ribbon"
+		"tiddlywiki/github-fork-ribbon",
+		"BJ/TW5CKEditor"
 	],
 	"themes": [
 		"tiddlywiki/vanilla",

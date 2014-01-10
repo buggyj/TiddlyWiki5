@@ -17,7 +17,7 @@ Wiki text block rule for rules. For example:
 "use strict";
 
 exports.name = "horizrule";
-exports.types = {block: true};
+exports.types = {block: true, blockclassic: true};
 
 exports.init = function(parser) {
 	this.parser = parser;

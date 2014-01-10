@@ -17,7 +17,7 @@ Wiki rule for macro calls
 "use strict";
 
 exports.name = "macrocallinline";
-exports.types = {inline: true};
+exports.types = {inline: true, inlineclassic: true};
 
 exports.init = function(parser) {
 	this.parser = parser;

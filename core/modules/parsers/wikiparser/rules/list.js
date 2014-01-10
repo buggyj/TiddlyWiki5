@@ -47,7 +47,7 @@ A CSS class can be applied to a list item as follows:
 "use strict";
 
 exports.name = "list";
-exports.types = {block: true};
+exports.types = {block: true, blockclassic: true};
 
 exports.init = function(parser) {
 	this.parser = parser;

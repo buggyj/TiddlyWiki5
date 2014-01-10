@@ -21,7 +21,7 @@ External links can be suppressed by preceding them with `~`.
 "use strict";
 
 exports.name = "extlink";
-exports.types = {inline: true};
+exports.types = {inline: true, inlineclassic: true};
 
 exports.init = function(parser) {
 	this.parser = parser;
