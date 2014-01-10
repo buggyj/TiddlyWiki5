@@ -24,7 +24,7 @@ This is a widget invocation
 "use strict";
 
 exports.name = "html";
-exports.types = {inline: true, block: true, htmlblock:true};
+exports.types = {inline: true, block: true};
 
 exports.init = function(parser) {
 	this.parser = parser;

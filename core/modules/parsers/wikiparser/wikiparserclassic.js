@@ -26,7 +26,7 @@ var ParserPrimer = function(type,text,options) {
 		ParserPrimer.prototype.inlineRuleClasses = $tw.modules.createClassesFromModules("wikirule","inlineclassic",$tw.WikiRuleBase);
 	}
 	// Save the parse text
-	returns.type = type || "text/vnd.tiddlywiki";
+	returns.type = type;
 	returns.source = text || "";
 	returns.options = options;
 	
