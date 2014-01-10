@@ -36,7 +36,7 @@ Quotes can be quoted by putting more <s
 "use strict";
 
 exports.name = "quoteblock";
-exports.types = {block: true};
+exports.types = {block: true, blockclassic: true};
 
 exports.init = function(parser) {
 	this.parser = parser;

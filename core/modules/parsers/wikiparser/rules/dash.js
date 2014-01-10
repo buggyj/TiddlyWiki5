@@ -19,7 +19,7 @@ This is an em-dash: ---
 "use strict";
 
 exports.name = "dash";
-exports.types = {inline: true};
+exports.types = {inline: true, inlineclassic: true};
 
 exports.init = function(parser) {
 	this.parser = parser;

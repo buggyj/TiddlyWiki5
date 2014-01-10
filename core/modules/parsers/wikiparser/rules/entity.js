@@ -17,7 +17,7 @@ Wiki text inline rule for HTML entities. For example:
 "use strict";
 
 exports.name = "entity";
-exports.types = {inline: true};
+exports.types = {inline: true, inlineclassic: true};
 
 exports.init = function(parser) {
 	this.parser = parser;

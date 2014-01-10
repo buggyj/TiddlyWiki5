@@ -13,7 +13,7 @@ Wiki text block rule for tables.
 "use strict";
 
 exports.name = "table";
-exports.types = {block: true};
+exports.types = {block: true, blockclassic: true};
 
 exports.init = function(parser) {
 	this.parser = parser;

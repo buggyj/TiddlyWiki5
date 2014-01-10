@@ -18,7 +18,7 @@ Wiki text inline rule for code runs. For example:
 "use strict";
 
 exports.name = "codeinline";
-exports.types = {inline: true};
+exports.types = {inline: true, inlineclassic: true};
 
 exports.init = function(parser) {
 	this.parser = parser;
