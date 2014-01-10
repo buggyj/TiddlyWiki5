@@ -29,13 +29,13 @@ var ParserPrimer = function(type,text,options) {
 
 	// Initialise the classes if we don't have them already
 	if(!this.pragmaRuleClasses) {
-		ParserPrimer.prototype.pragmaRuleClasses = $tw.modules.createClassesFromModules("wikirule.five","pragma",$tw.WikiRuleBase);
+		ParserPrimer.prototype.pragmaRuleClasses = $tw.modules.createClassesFromModules("wikirule","pragma",$tw.WikiRuleBase);
 	}
 	if(!this.blockRuleClasses) {
-		ParserPrimer.prototype.blockRuleClasses = $tw.modules.createClassesFromModules("wikirule.five","block",$tw.WikiRuleBase);
+		ParserPrimer.prototype.blockRuleClasses = $tw.modules.createClassesFromModules("wikirule","block",$tw.WikiRuleBase);
 	}
 	if(!this.inlineRuleClasses) {
-		ParserPrimer.prototype.inlineRuleClasses = $tw.modules.createClassesFromModules("wikirule.five","inline",$tw.WikiRuleBase);
+		ParserPrimer.prototype.inlineRuleClasses = $tw.modules.createClassesFromModules("wikirule","inline",$tw.WikiRuleBase);
 	}
 	// Save the parse text
 	returns.type = type || "text/vnd.tiddlywiki";
