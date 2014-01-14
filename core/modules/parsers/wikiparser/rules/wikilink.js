@@ -21,7 +21,7 @@ Precede a camel case word with `~` to prevent it from being recognised as a link
 "use strict";
 
 exports.name = "wikilink";
-exports.types = {inline: true, inlineclassic: true};
+exports.types = {inline: true, inlineclassic: false};
 
 var textPrimitives = {
 	upperLetter: "[A-Z\u00c0-\u00de\u0150\u0170]",

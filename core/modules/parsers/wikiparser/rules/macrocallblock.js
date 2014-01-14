@@ -17,7 +17,7 @@ Wiki rule for block macro calls
 "use strict";
 
 exports.name = "macrocallblock";
-exports.types = {block: true, blockclassic: true};
+exports.types = {block: true, blockclassic: false};
 
 exports.init = function(parser) {
 	this.parser = parser;

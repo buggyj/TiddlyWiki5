@@ -19,7 +19,7 @@ Wiki text inline rule for pretty links. For example:
 "use strict";
 
 exports.name = "prettylink";
-exports.types = {inline: true, inlineclassic: true};
+exports.types = {inline: true, inlineclassic: false};
 
 exports.init = function(parser) {
 	this.parser = parser;
