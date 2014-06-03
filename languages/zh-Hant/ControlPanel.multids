@@ -4,6 +4,17 @@ Advanced/Caption: 進階
 Advanced/Hint: 關於此 TiddlyWiki 的內部資訊
 Advanced/LoadedModules/Caption: 已載入的模組
 Advanced/LoadedModules/Hint: 這些是當前已載入的模組之源碼條目。斜體的模組則無源碼條目，通常是因為它們是在引導過程中設置。
+Advanced/Settings/Caption: 設定
+Advanced/Settings/Hint: 這些進階設定讓您自訂 TiddlyWiki 的行為。
+Advanced/Settings/NavigationAddressBar/Caption: 網址列導覽
+Advanced/Settings/NavigationAddressBar/Hint: 在瀏覽器網址列導覽到條目時的行為：
+Advanced/Settings/NavigationAddressBar/No/Description: 不更新網址列
+Advanced/Settings/NavigationAddressBar/Permalink/Description: 包含目標條目
+Advanced/Settings/NavigationAddressBar/Permaview/Description: 包括目標條目和當前已開啟的條目序列
+Advanced/Settings/NavigationHistory/Caption: 歷史記錄導覽
+Advanced/Settings/NavigationHistory/Hint: 當導覽到條目時，更新瀏覽器歷史記錄：
+Advanced/Settings/NavigationHistory/No/Description: 不更新歷史記錄
+Advanced/Settings/NavigationHistory/Yes/Description: 更新歷史記錄
 Advanced/TiddlerFields/Caption: 條目欄位
 Advanced/TiddlerFields/Hint: 這是本維基使用中的所有條目欄位（含系統條目的欄位，但預設條目的欄位除外）。
 Appearance/Caption: 視覺外觀
@@ -14,9 +25,9 @@ Appearance/Palette/Editor/Clone/Prompt: 建議您修改前先複製此預設調�
 Appearance/Palette/Editor/Prompt/Modified: 此預設調色盤已被修改過
 Appearance/Palette/Editor/Prompt: 編輯
 Appearance/Palette/Editor/Reset/Caption: 重置
-Appearance/Palette/ShowEditor/Caption: 顯示編輯器
 Appearance/Palette/HideEditor/Caption: 隱藏編輯器
 Appearance/Palette/Prompt: 當前的調色盤：
+Appearance/Palette/ShowEditor/Caption: 顯示編輯器
 Appearance/StoryView/Caption: 檢視模式
 Appearance/StoryView/Prompt: 當前的檢視模式：
 Appearance/Theme/Caption: 佈景主題
@@ -40,6 +51,9 @@ Plugins/Caption: 插件
 Plugins/Fields/Description: 說明
 Plugins/Fields/Title: 標題
 Plugins/Fields/Version: 版本
+Plugins/Language/Prompt: 語言
+Plugins/Plugin/Prompt: 插件
+Plugins/Theme/Prompt: 佈景主題
 Saving/AutoSave/Disabled/Button: 啟用
 Saving/AutoSave/Disabled/Prompt: 自動儲存已停用
 Saving/AutoSave/Enabled/Button: 停用

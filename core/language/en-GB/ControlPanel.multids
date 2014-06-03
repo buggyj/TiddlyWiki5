@@ -4,6 +4,17 @@ Advanced/Caption: Advanced
 Advanced/Hint: Internal information about this TiddlyWiki
 Advanced/LoadedModules/Caption: Loaded Modules
 Advanced/LoadedModules/Hint: These are the currently loaded tiddler modules linked to their source tiddlers. Any italicised modules lack a source tiddler, typically because they were setup during the boot process.
+Advanced/Settings/Caption: Settings
+Advanced/Settings/Hint: These advanced settings let you customise the behaviour of TiddlyWiki.
+Advanced/Settings/NavigationAddressBar/Caption: Navigation Address Bar
+Advanced/Settings/NavigationAddressBar/Hint: Behaviour of the browser address bar when navigating to a tiddler:
+Advanced/Settings/NavigationAddressBar/No/Description: Do not update the address bar
+Advanced/Settings/NavigationAddressBar/Permalink/Description: Include the target tiddler
+Advanced/Settings/NavigationAddressBar/Permaview/Description: Include the target tiddler and the current story sequence
+Advanced/Settings/NavigationHistory/Caption: Navigation History
+Advanced/Settings/NavigationHistory/Hint: Update browser history when navigating to a tiddler:
+Advanced/Settings/NavigationHistory/No/Description: Do not update history
+Advanced/Settings/NavigationHistory/Yes/Description: Update history
 Advanced/TiddlerFields/Caption: Tiddler Fields
 Advanced/TiddlerFields/Hint: This is the full set of TiddlerFields in use in this wiki (including system tiddlers but excluding shadow tiddlers).
 Appearance/Caption: Appearance
@@ -14,9 +25,9 @@ Appearance/Palette/Editor/Clone/Prompt: It is recommended that you clone this sh
 Appearance/Palette/Editor/Prompt/Modified: This shadow palette has been modified
 Appearance/Palette/Editor/Prompt: Editing
 Appearance/Palette/Editor/Reset/Caption: reset
-Appearance/Palette/ShowEditor/Caption: show editor
 Appearance/Palette/HideEditor/Caption: hide editor
 Appearance/Palette/Prompt: Current palette:
+Appearance/Palette/ShowEditor/Caption: show editor
 Appearance/StoryView/Caption: Story View
 Appearance/StoryView/Prompt: Current view:
 Appearance/Theme/Caption: Theme
@@ -40,6 +51,9 @@ Plugins/Caption: Plugins
 Plugins/Fields/Description: Description
 Plugins/Fields/Title: Title
 Plugins/Fields/Version: Version
+Plugins/Language/Prompt: Languages
+Plugins/Plugin/Prompt: Plugins
+Plugins/Theme/Prompt: Themes
 Saving/AutoSave/Disabled/Button: enable
 Saving/AutoSave/Disabled/Prompt: Autosave is currently disabled
 Saving/AutoSave/Enabled/Button: disable

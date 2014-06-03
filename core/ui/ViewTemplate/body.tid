@@ -3,6 +3,10 @@ tags: $:/tags/ViewTemplate
 
 <div class="body">
 
-<$transclude />
+<$transclude>
+
+<$transclude tiddler="$:/language/MissingTiddler/Hint"/>
+
+</$transclude>
 
 </div>
