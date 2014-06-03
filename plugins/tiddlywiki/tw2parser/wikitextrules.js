@@ -11,7 +11,7 @@ Rule modules for the wikitext parser
 /*jslint node: true, browser: true */
 /*global $tw: false */
 "use strict";
-
+var macroadapter = require("$:/macros/classic/macroadapter.js");
 var textPrimitives = {
 	upperLetter: "[A-Z\u00c0-\u00de\u0150\u0170]",
 	lowerLetter: "[a-z0-9_\\-\u00df-\u00ff\u0151\u0171]",
@@ -487,9 +487,17 @@ var rules = [
 			name;
 		if(lookaheadMatch && lookaheadMatch.index == w.matchStart) {
 			name = lookaheadMatch[1] || lookaheadMatch[2];
+			var params = lookaheadMatch[3], nameold =name;
 			if (name) {
+				if (!!macroadapter.paramadapter[name]) {
+					params=macroadapter.paramadapter[name](params);
+				}
+				if (!!macroadapter.namedapter[name]) {
+					name=macroadapter.namedapter[name];
+				}
 				w.nextMatch = this.lookaheadRegExp.lastIndex;
-				insertMacroCall(w,w.output,name,lookaheadMatch[3]);
+				//alert(name+" "+params +" "+nameold+" "+ lookaheadMatch[3]);
+				insertMacroCall(w,w.output,name,params);
 			}
 		}
 	}
@@ -526,8 +534,7 @@ var rules = [
 		});
 	} else {
 		w.output.push({
-			type: "element",
-			tag: "$link",
+			type: "link",
 			attributes: {
 				to: {type: "string", value: link}
 			},
@@ -561,8 +568,7 @@ var rules = [
 		}
 		if(w.autoLinkWikiWords) {
 			w.output.push({
-				type: "element",
-				tag: "$link",
+				type: "link",
 				attributes: {
 					to: {type: "string", value: w.matchText}
 				},

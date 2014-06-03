@@ -1,12 +1,34 @@
 title: $:/plugins/tiddlywiki/tw2parser/macrodefs
 
-\define tiddler(t)
-{{$t$}}
+\define tiddler(tiddler)
+<$classictransclude tiddler = "$tiddler$"/>
 \end
 
 \define slider(chkUniqueCookieName tiddler label tooltip)
 <span title=$tooltip$><$button popup="$chkUniqueCookieName$" class="btn-invisible tw-slider">$label$</$button>
 <$reveal type="nomatch" text="" default="" state="$chkUniqueCookieName$" animate="yes">
-{{$tiddler$}}
+<$classictransclude tiddler = "$tiddler$"/>
 </$reveal></span>
+\end
+
+\define tabinstance(state, currentTab)
+		<span title=<<entryof "$currentTab$" "$state$/prompt" >> ><$button set=<<qualify "$state$">> setTo="$currentTab$" selectedClass="tw-tab-selected">
+		<$transclude tiddler="$state$/label" index="$currentTab$"/>
+		</$button></span>
+\end
+
+\define mangled_tabs(tabsList,state:"$:/state/tab")
+<div class="tw-tab-buttons">
+	<$list filter="$tabsList$" variable="currentTab">
+		<$macrocall $name="tabinstance" state="$state$" currentTab=<<currentTab>>/>
+	</$list>
+</div>
+<div class="tw-tab-divider"/>
+<div class="tw-tab-content">
+	<$list filter="$tabsList$" variable="currentTab">
+		<$reveal type="match" state=<<qualify "$state$">> text=<<currentTab>> default="$default$">
+			<$classictransclude tiddler=<<currentTab>> />
+		</$reveal>
+	</$list>
+</div>
 \end

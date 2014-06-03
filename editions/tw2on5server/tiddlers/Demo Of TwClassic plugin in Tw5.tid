@@ -1,0 +1,11 @@
+created: 20140416201128370
+modified: 20140417180414242
+title: Demo Of TwClassic plugin in Tw5
+type: text/vnd.tiddlywiki
+
+!!Demo of the tw2parser plugin 
+Test card is here: [[Markup]] (from http://tiddlywiki.org/)
+Twc plugin uses one tiddler for common macro defintions: [[$:/plugins/tiddlywiki/tw2parser/macrodefs]]
+See example use here: [[Tw5 Type With TcSlider]].
+You can also call javascript macros see [[ExtendableCalendar]]
+<<slider $:/state/tab Issues "Issues»" "more" >>

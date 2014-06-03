@@ -1,0 +1,115 @@
+_hash: 78b7216cae18ec47008a6948d404deee68257058
+created: 20130213001758000
+creator: tobibeer
+modified: 20140415164727537
+modifier: andrewstern
+more: [[TiddlyWiki Markup]]
+server.bag: tiddlywiki_public
+server.content-type: 
+server.etag: "tiddlywiki_public/Comment%20Formatting/1335257:dfac9b4ac6526e0a1625ecf4796601565b189fb7"
+server.host: http://tiddlywiki.org
+server.page.revision: 1335257
+server.permissions: read
+server.recipe: tiddlywiki_public
+server.title: Comment Formatting
+server.type: tiddlyweb
+server.workspace: bags/tiddlywiki_public
+tags: Formatting
+title: Comment Formatting
+type: text/vnd.tiddlywiki
+
+!Summary
+Occasionally you want to add notes to your tiddler markup yet don't want it displayed when the tiddler is rendered. To achieve this, wrap the text using {{{/% hidden %/}}}.
+!Example
+{{{
+text before .../%
+!HIDDEN SECTION
+This is content of a hidden section.
+!END%/ text after
+}}}
+''Display as:''
+<<<
+text before /%
+!HIDDEN SECTION
+This is content of a hidden section.
+!END%/... text after
+<<<
+!Also see...
+;[[Suppressing Formatting]]
+:» when you just don't want that text to be TiddlyWiki markup
+:» when you want to prevent WikiWords
+:» when you copy & paste from other sources
+
+!Code Comments
+When you move to the design and development front of TiddlyWiki, you may want or need to //commented out// passage to prevent them from being interpreted as Javascript, CSS or HTML...
+;HTML Comments
+:» e.g. in PageTemplate, ViewTemplate, EditTemplate
+:{{sub{
+{{{
+<!-- HTML Comment-->
+<!-- 
+possibly
+multiple lines
+-->
+}}}
+}}}
+:» for displaying wikified content in HTML tiddlers:
+:{{sub{
+{{{
+<!---
+''Wikified'' HTML Comment
+possibly multiple lines
+--->
+}}}
+}}}
+;CSS Comments
+:» e.g. in StyleSheets
+:{{sub{
+{{{
+/* CSS Comment */
+/*
+possibly
+multiple lines
+*/
+}}}
+}}}
+:» for displaying wikified content in CSS tiddlers:
+:{{sub{
+{{{
+/*** __Wikified__ CSS Comment ***/
+/***
+!Possibly
+* multiple
+* lines
+***/
+}}}
+}}}
+;JavaScript Comments
+:» in plugins, i.e. tiddlers tagged <<tag systemConfig>>
+:{{sub{
+{{{
+// JavaScript, Single-line Comment
+}}}
+}}}
+:{{sub{
+{{{
+/* JavaScript Comment */
+/*
+possibly
+multiple lines
+*/
+}}}
+}}}
+:» for displaying wikified content in JavaScript tiddlers:
+:{{sub{
+{{{
+/*** __Wikified__ JavaScript Comment ***/
+/***
+; possibly
+: multiple lines
+***/
+}}}
+}}}
+!Also see...
+;[[Code Formatting|Code]]
+:» for rendering code formatting

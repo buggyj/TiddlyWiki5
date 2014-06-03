@@ -1,0 +1,11 @@
+created: 20140416193948971
+modified: 20140417081718885
+title: Tw5 Type With TcSlider
+type: text/vnd.tiddlywiki
+
+!Tw5 Here
+
+$$$text/x-tiddlywiki
+!Classic Here
+<<slider xxx slidertest "click me»" "more" >>
+$$$
