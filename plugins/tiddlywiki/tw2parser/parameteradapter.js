@@ -12,9 +12,10 @@ module-type: module
 Information about this module:
 rename macros and
 re-jig macro params from tw2 to tw5 style
-new macros created as a result of adapting tw2 should be prepended "mangled" 
+new macros created as a result of adapting tw2 should be 
+prepended "mangled" to distinguish them from the actual used name
+TODO - maybe change the prefix to __system__ 
 */
-
 var sliceSeparator = "::";
 var sectionSeparator = "##";
 
@@ -69,8 +70,7 @@ var parserparams = function(paramString) {
 	}
 	return params;
 }
-var tabshandler = function(paramstring)
-{
+var tabshandler = function(paramstring) {
 	var params = parserparams(paramstring);
 	var cookie = params[0].value;
 	var numTabs = (params.length-1)/3;
