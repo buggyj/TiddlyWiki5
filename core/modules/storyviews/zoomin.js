@@ -127,6 +127,8 @@ function findTitleDomNode(widget,targetClass) {
 	return null;
 }
 
+ZoominListView.prototype.updatehistory = "last-visted-in-story";
+
 ZoominListView.prototype.insert = function(widget) {
 	var targetElement = widget.findFirstDomNode();
 	// Abandon if the list entry isn't a DOM element (it might be a text node)
@@ -146,6 +148,8 @@ ZoominListView.prototype.remove = function(widget) {
 		removeElement = function() {
 			widget.removeChildDomNodes();
 		};
+		removeElement();
+		return;
 	// Abandon if the list entry isn't a DOM element (it might be a text node)
 	if(!(targetElement instanceof Element)) {
 		removeElement();

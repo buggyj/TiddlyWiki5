@@ -17,6 +17,11 @@ var IMPORT_TITLE = "$:/Import";
 var Widget = require("$:/core/modules/widgets/widget.js").widget;
 
 var NavigatorWidget = function(parseTreeNode,options) {
+	// Initialise the storyviews if they've not been done already
+	if(!this.storyViews) {
+		NavigatorWidget.prototype.storyViews = {};
+		$tw.modules.applyMethods("storyview",this.storyViews);
+	}
 	this.initialise(parseTreeNode,options);
 	this.addEventListeners([
 		{type: "tm-navigate", handler: "handleNavigateEvent"},
@@ -29,7 +34,8 @@ var NavigatorWidget = function(parseTreeNode,options) {
 		{type: "tm-close-other-tiddlers", handler: "handleCloseOtherTiddlersEvent"},
 		{type: "tm-new-tiddler", handler: "handleNewTiddlerEvent"},
 		{type: "tm-import-tiddlers", handler: "handleImportTiddlersEvent"},
-		{type: "tm-perform-import", handler: "handlePerformImportEvent"}
+		{type: "tm-perform-import", handler: "handlePerformImportEvent"},
+		{type: "tm-history-update", handler: "handleHistoryUpdateEvent"},
 	]);
 };
 
@@ -46,6 +52,13 @@ NavigatorWidget.prototype.render = function(parent,nextSibling) {
 	this.computeAttributes();
 	this.execute();
 	this.renderChildren(parent,nextSibling);
+	// Construct the storyview
+	var StoryView = this.storyViews[this.storyViewName];
+	if(StoryView && !this.document.isTiddlyWikiFakeDom) {
+		this.storyview =  StoryView;alert(this.storyViewName)
+	} else {
+		this.storyview = null; alert(this.storyViewName)
+	}
 };
 
 /*
@@ -55,6 +68,7 @@ NavigatorWidget.prototype.execute = function() {
 	// Get our parameters
 	this.storyTitle = this.getAttribute("story");
 	this.historyTitle = this.getAttribute("history");
+	this.storyViewName = this.getAttribute("storyview");
 	// Construct the child widgets
 	this.makeChildWidgets();
 };
@@ -64,7 +78,7 @@ Selectively refreshes the widget if needed. Returns true if the widget or any of
 */
 NavigatorWidget.prototype.refresh = function(changedTiddlers) {
 	var changedAttributes = this.computeAttributes();
-	if(changedAttributes.story || changedAttributes.history) {
+	if(changedAttributes.story || changedAttributes.history || changedAttributes.storyview) {
 		this.refreshSelf();
 		return true;
 	} else {
@@ -152,13 +166,51 @@ NavigatorWidget.prototype.handleNavigateEvent = function(event) {
 	return false;
 };
 
+NavigatorWidget.prototype.handleHistoryUpdateEvent = function(event) {
+	var historyTitle = this.historyTitle || "$:/HistoryList", 
+		storyList = this.getStoryList();
+	//handle case where the closing tiddler is the current tiddler in the story
+	if(title == this.wiki.getTiddler(this.historyTitle).fields["current-tiddler"]){
+		var historyList = this.wiki.getTiddlerData(historyTitle,[]);
+		var index = historyList.length - 2;
+		while (index >= 0) {
+			var prev = historyList[index].title;
+			if (-1 !== storyList.indexOf(prev)) {
+				this.addToHistory(prev);
+				break;
+			}
+			index--;
+		}
+	}
+	return false;
+};
+
+
 // Close a specified tiddler
 NavigatorWidget.prototype.handleCloseTiddlerEvent = function(event) {
-	var title = event.param || event.tiddlerTitle,
+	var historyTitle = this.historyTitle || "$:/HistoryList", 
+		storyTitle = this.storyTitle || "$:/view", 
+		title = event.param || event.tiddlerTitle,
 		storyList = this.getStoryList();
 	// Look for tiddlers with this title to close
 	this.removeTitleFromStory(storyList,title);
 	this.saveStoryList(storyList);
+	//handle case where the closing tiddler is the current tiddler in the story
+	if(title == this.wiki.getTiddler(this.historyTitle).fields["current-tiddler"]) {
+		if(this.storyview.prototype.updatehistory && this.storyview.prototype.updatehistory === "last-visted-in-story") {
+			var historyList = this.wiki.getTiddlerData(historyTitle,[]);
+			var index = historyList.length - 2;
+			while (index >= 0) {
+				var prev = historyList[index].title;
+				if(-1 !== storyList.indexOf(prev)) {
+					this.addToHistory(prev);
+					break;
+				}
+				index--;
+			}
+		}
+		//else default next tiddler?
+	}
 	return false;
 };
 

@@ -213,7 +213,7 @@ ListWidget.prototype.handleListChanges = function(changedTiddlers) {
 			} else {
 				// There are intervening list items that must be removed
 				for(var n=index-1; n>=t; n--) {
-					this.removeListItem(n);
+					this.removeListItem(n,this.list[n]);
 					hasRefreshed = true;
 				}
 				// Refresh the item we're reusing
@@ -223,7 +223,7 @@ ListWidget.prototype.handleListChanges = function(changedTiddlers) {
 		}
 		// Remove any left over items
 		for(t=this.children.length-1; t>=this.list.length; t--) {
-			this.removeListItem(t);
+			this.removeListItem(t,this.list[t]);
 			hasRefreshed = true;
 		}
 		return hasRefreshed;
@@ -263,11 +263,18 @@ ListWidget.prototype.insertListItem = function(index,title) {
 /*
 Remove the specified list item
 */
-ListWidget.prototype.removeListItem = function(index) {
+ListWidget.prototype.removeListItem = function(index,title) {
 	var widget = this.children[index];
 	// Animate the removal if required
 	if(this.storyview && this.storyview.remove) {
-		this.storyview.remove(widget);
+		this.storyview.remove(widget);/*alert(title);
+		if (this.storyview.updatehistory && title && this.historyTitle && (title == this.wiki.getTiddler(this.historyTitle).fields["current-tiddler"])) {
+		//send a message to the navigator
+			this.dispatchEvent({
+				type: "tm-history-update",
+				updatetype:"last-visted-in-story"
+			});
+		}*/
 	} else {
 		widget.removeChildDomNodes();
 	}
