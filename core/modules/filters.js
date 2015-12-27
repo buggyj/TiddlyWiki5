@@ -160,6 +160,19 @@ exports.filterTiddlers = function(filterString,widget,source) {
 	return fn.call(this,source,widget);
 };
 
+exports.forTiddlersInTiddler = function(titleOfPlugin) {
+	// Iterate through all the Contained  tiddlers
+	var title = titleOfPlugin;
+	return function(callback) {	
+		var bundle = $tw.wiki.getTiddlerData(title)|| $tw.wiki.getPluginInfo(title);
+		if(bundle && bundle.tiddlers) { 
+			for(var subTiddler in bundle.tiddlers) {
+					callback(new $tw.Tiddler(bundle.tiddlers[subTiddler]),subTiddler);
+			}
+		}
+	}
+};
+
 /*
 Compile a filter into a function with the signature fn(source,widget) where:
 source: an iterator function for the source tiddlers, called source(iterator), where iterator is called as iterator(tiddler,title)
